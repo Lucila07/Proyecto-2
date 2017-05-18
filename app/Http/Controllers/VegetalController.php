@@ -10,10 +10,9 @@ class VegetalController extends Controller
 {
 
 
-  public function index()
-  {
-  $vegetales = Vegetal::all();
-  return view('comidas.prueba', compact('vegetales'));
-  }
 
+  public function json() {
+
+    return Vegetal::all();
+	}
 }

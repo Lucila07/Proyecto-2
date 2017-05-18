@@ -14,8 +14,9 @@ partesPlato={'parte1':'libre','parte2':'libre','parte3':'libre'};
 //jQuery
 $(document).ready(function(){
 
-        var ajax = new AJAXInteraction("./json/platos.json", function(data){
+        var ajax = new AJAXInteraction("/vegetales/json", function(data){
         comidasDisp=data;
+        console.log(data);
         $('.panel-button').on('click',function(){
             var categoria= $(this).attr('data-panelcat');
             var elemento = $(this).attr('data-panelid');

@@ -22,4 +22,5 @@ Auth::routes();
 
 Route::get('/home', 'ComidaController@index');
 
-Route::get('/prueba', 'VegetalController@index');
+//Route::get('/vegetales/json', 'VegetalController@json');
+Route::get('/vegetales/json', 'ComidaController@json');
