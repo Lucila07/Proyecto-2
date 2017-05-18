@@ -21,3 +21,5 @@ Route::get('/', 'ComidaController@index');
 Auth::routes();
 
 Route::get('/home', 'ComidaController@index');
+
+Route::get('/prueba', 'VegetalController@index');

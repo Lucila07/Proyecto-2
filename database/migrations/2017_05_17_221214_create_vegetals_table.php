@@ -15,6 +15,7 @@ class CreateVegetalsTable extends Migration
     {
         Schema::create('vegetals', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nombre');
             $table->timestamps();
         });
     }
