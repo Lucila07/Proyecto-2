@@ -20,4 +20,4 @@ Route::get('/', 'ComidaController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'ComidaController@index');
