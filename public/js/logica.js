@@ -105,7 +105,6 @@ function haySugerencias(){
 
 //Aca van las funciones que seran llamadas desde jQuery
 function addFood(categoria, elemento) {
-    console.log("ENTRO1");
     var index1= Object.keys(plato).length;
    if (index1<3){
        var posElem= searchFood(categoria, elemento);

@@ -119,9 +119,9 @@
             <ul class="contenedor">
                 <li class="panel-button" data-panelcat="Carnes" data-panelid="Pollo">Pollo</li>
                 <li class="panel-button" data-panelcat="Carnes" data-panelid="Merluza">Merluza</li>
-                <li class="panel-button" data-panelcat="Carnes" data-panelid="Bife de Vaca">Bife de Vaca</li>
-                <li class="panel-button" data-panelcat="Carnes" data-panelid="Bife de Cerdo">Bife de Cerdo</li>
-                <li class="panel-button" data-panelcat="Carnes" data-panelid="Chuletas de Cordero">Chuletas de Cordero</li>
+                <li class="panel-button" data-panelcat="Carnes" data-panelid="BifedeVaca">Bife de Vaca</li>
+                <li class="panel-button" data-panelcat="Carnes" data-panelid="BifedeCerdo">Bife de Cerdo</li>
+                <li class="panel-button" data-panelcat="Carnes" data-panelid="ChuletasdeCordero">Chuletas de Cordero</li>
             </ul>
         </div>
        </div>
@@ -138,8 +138,8 @@
       <div class="panel-body">
       <div>
             <ul class="contenedor">
-                <li class="panel-button" data-panelcat="Minutas" data-panelid="Milanesa de Pollo">Milanesa de Pollo</li>
-                <li class="panel-button" data-panelcat="Minutas" data-panelid="Milanesa de Ternera">Milanesa de Ternera</li>
+                <li class="panel-button" data-panelcat="Minutas" data-panelid="MilanesadePollo">Milanesa de Pollo</li>
+                <li class="panel-button" data-panelcat="Minutas" data-panelid="MilanesadeTernera">Milanesa de Ternera</li>
                 <li class="panel-button" data-panelcat="Minutas" data-panelid="Hamburguesa">Hamburguesa</li>
                 <li class="panel-button" data-panelcat="Minutas" data-panelid="Pizza">Pizza</li>
                 <li class="panel-button" data-panelcat="Minutas" data-panelid="Empanadas">Empanadas</li>
@@ -161,7 +161,7 @@
             <ul class="contenedor">
                 <li class="panel-button" data-panelcat="Pastas" data-panelid="Spaghetti">Spaghetti</li>
                 <li class="panel-button" data-panelcat="Pastas" data-panelid="Ravioles">Ravioles</li>
-                <li class="panel-button" data-panelcat="Pastas" data-panelid="Ñoquis">Ñoquis</li>
+                <li class="panel-button" data-panelcat="Pastas" data-panelid="Noquis">Ñoquis</li>
             </ul>
         </div>
       </div>
