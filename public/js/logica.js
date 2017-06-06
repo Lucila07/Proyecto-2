@@ -28,6 +28,20 @@ $(document).ready(function(){
         });
         $(document).ready(iniciarEstilo());
         });
+        $('.open-modal').click(function(){
+     var id = $(this).val();
+
+     $.get('edit/'+id, function (data) {
+         //success data
+
+     $('#comida_id').val(data.id);
+     $('#nombre').val(data.Nombre);
+
+     $('.foodImg').attr('src',"Imagenes/"+id+".png");
+
+     $('#myModal').modal('show');
+     })
+ });
 
 
         ajax.doGet();

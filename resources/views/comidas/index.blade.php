@@ -28,7 +28,11 @@
                    <a class="dropdown">
                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                            {{ Auth::user()->name }} <span class="caret"></span>
-                       </a>
+                        </a>
+                        @if (Auth::user()->isAdmin())
+                            <a href=#>Editar Pagina<h2>
+                        @endif
+
 
                        <ul class="dropdown-menu" role="menu">
                            <li  class="list-unstyled">
@@ -81,26 +85,28 @@
   <div class="col-md-4">
    <div class="panel-group" id="accordion">
   <div class="panel panel-default">
-    <div class="panel-heading">
+    <div class=" panel-heading">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
         Vegetales</a>
       </h4>
     </div>
-    <div id="collapse1" class="panel-collapse collapse">
+    <div id="collapse1" class=" panel-collapse collapse">
       <div class="panel-body">
       <div>
             <ul class="contenedor">
-                <li class="panel-button" data-panelcat="Vegetales" data-panelid="Tomate">Tomate</li>
-                <li class="panel-button" data-panelcat="Vegetales" data-panelid="Lechuga">Lechuga</li>
-                <li class="panel-button" data-panelcat="Vegetales" data-panelid="Zanahoria">Zanahoria</li>
-                <li class="panel-button" data-panelcat="Vegetales" data-panelid="Pepino">Pepino</li>
-                <li class="panel-button" data-panelcat="Vegetales" data-panelid="Papa">Papa</li>
-                <li class="panel-button" data-panelcat="Vegetales" data-panelid="Zapallo">Zapallo</li>
-                <li class="panel-button" data-panelcat="Vegetales" data-panelid="Choclo">Choclo</li>
-                <li class="panel-button" data-panelcat="Vegetales" data-panelid="Batata">Batata</li>
-                <li class="panel-button" data-panelcat="Vegetales" data-panelid="Acelga">Acelga</li>
-                <li class="panel-button" data-panelcat="Vegetales" data-panelid="Espinaca">Espinaca</li>
+
+              @foreach ($vegetales as $vegetal)
+
+                  <li
+                   class="panel-button" id={{ $vegetal->Nombre }}  data-panelcat="Vegetales" data-panelid={{ $vegetal->Nombre }}> {{ $vegetal->Nombre }}
+
+                  </li>
+                  <button class="open-modal" style="float: right ;" value="{{$vegetal->id}}" >Edit</button>
+
+
+              @endforeach
+
             </ul>
         </div>
       </div>
@@ -117,12 +123,11 @@
       <div class="panel-body">
         <div>
             <ul class="contenedor">
-                <li class="panel-button" data-panelcat="Carnes" data-panelid="Pollo">Pollo</li>
-                <li class="panel-button" data-panelcat="Carnes" data-panelid="Merluza">Merluza</li>
-                <li class="panel-button" data-panelcat="Carnes" data-panelid="BifedeVaca">Bife de Vaca</li>
-                <li class="panel-button" data-panelcat="Carnes" data-panelid="BifedeCerdo">Bife de Cerdo</li>
-                <li class="panel-button" data-panelcat="Carnes" data-panelid="ChuletasdeCordero">Chuletas de Cordero</li>
-            </ul>
+
+              @foreach ($carnes as $carne)
+                  <li class="panel-button" data-panelcat="Carnes" data-panelid={{ $carne->Nombre }}> {{ $carne->Nombre }}</li>
+              @endforeach
+                  </ul>
         </div>
        </div>
     </div>
@@ -138,12 +143,11 @@
       <div class="panel-body">
       <div>
             <ul class="contenedor">
-                <li class="panel-button" data-panelcat="Minutas" data-panelid="MilanesadePollo">Milanesa de Pollo</li>
-                <li class="panel-button" data-panelcat="Minutas" data-panelid="MilanesadeTernera">Milanesa de Ternera</li>
-                <li class="panel-button" data-panelcat="Minutas" data-panelid="Hamburguesa">Hamburguesa</li>
-                <li class="panel-button" data-panelcat="Minutas" data-panelid="Pizza">Pizza</li>
-                <li class="panel-button" data-panelcat="Minutas" data-panelid="Empanadas">Empanadas</li>
-            </ul>
+
+              @foreach ($minutas as $minuta)
+                  <li class="panel-button" data-panelcat="Minutas" data-panelid={{ $minuta->Nombre }}> {{ $minuta->Nombre }} </li>
+              @endforeach
+                        </ul>
         </div>
       </div>
     </div>
@@ -159,9 +163,11 @@
       <div class="panel-body">
       <div>
             <ul class="contenedor">
-                <li class="panel-button" data-panelcat="Pastas" data-panelid="Spaghetti">Spaghetti</li>
-                <li class="panel-button" data-panelcat="Pastas" data-panelid="Ravioles">Ravioles</li>
-                <li class="panel-button" data-panelcat="Pastas" data-panelid="Noquis">Ñoquis</li>
+
+              @foreach ($pastas as $pasta)
+                  <li class="panel-button" data-panelcat="Pastas" data-panelid={{ $pasta->Nombre }}> {{ $pasta->Nombre }}</li>
+              @endforeach
+
             </ul>
         </div>
       </div>
@@ -279,5 +285,45 @@
 </div>
     </div>
 </div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Editor de alimentos</h4>
+                        </div>
+                        <div class="modal-body">
+                          <form method='post' action='guardarCambios' id="idForm" enctype='multipart/form-data' >
+                              	{{csrf_field()}}
+                                  <meta name="csrf-token" content="{{ csrf_token() }}" />
+                                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                                  <div class="form-group error">
+                                  <label for="inputTask" class="col-sm-3 control-label">Alimento</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control has-error" id="nombre" name="nombre" placeholder="nombre" value="">
+                                    </div>
+                                  </div>
+                                <div class="form-group">
+                                <input type="file" name="image" text="actualizar Imagen" />
+                                  <div class="col-sm-12">
+                                     <img class="foodImg" src="" alt="No hay imagen disponible"/>
+                                  </div>
+                              </div>
+                              <div class="modal-footer">
+
+                                  <button type="submit" class="btn btn-primary" id="btn-save">Save changes</button>
+                                  <input type="hidden" id="comida_id" name="comida_id" value="0">
+
+                              </div>
+                          </form>
+                      </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
   </body>
 </html>

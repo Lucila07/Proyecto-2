@@ -24,3 +24,7 @@ Route::get('/home', 'ComidaController@index');
 
 //Route::get('/vegetales/json', 'VegetalController@json');
 Route::get('/vegetales/json', 'ComidaController@json');
+
+Route::get('/edit/{id}', 'ComidaController@edit');
+
+Route::post('guardarCambios', 'ComidaController@buttonSave');
