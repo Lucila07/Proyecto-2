@@ -57,9 +57,19 @@ class ComidaController extends Controller
   $vegetales = Vegetal::find($id);
   $vegetales->Nombre=$nombre;
   $vegetales->save();
-  if (Input::has('image'))
-    Input::file('image')->move('Imagenes', $id.'.png');
 
+  $vegetales= Vegetal::all();
+  $carnes= Carne::all();
+  $pastas= Pasta::all();
+  $minutas= Minuta::all();
+
+  
+ Input::file('image')->move('Imagenes', $id.'.png');
+     return view('comidas.index')
+      ->with('vegetales', $vegetales)
+      ->with('carnes', $carnes)
+      ->with('pastas', $pastas)
+      ->with('minutas', $minutas);
 }
 
 
