@@ -89,8 +89,10 @@
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
         Vegetales</a>
+        <button class="botonAñadir" style="float: right ;" value="Vegetales">Añadir</button>
       </h4>
     </div>
+
     <div id="collapse1" class=" panel-collapse collapse">
       <div class="panel-body">
       <div>
@@ -117,6 +119,7 @@
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
         Carnes</a>
+        <button class="botonAñadir" style="float: right ;" value="Carnes">Añadir</button>
       </h4>
     </div>
     <div id="collapse2" class="panel-collapse collapse">
@@ -137,6 +140,7 @@
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
         Minutas</a>
+        <button class="botonAñadir" style="float: right ;" value="Minutas">Añadir</button>
       </h4>
     </div>
     <div id="collapse3" class="panel-collapse collapse">
@@ -157,6 +161,7 @@
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
         Pastas</a>
+        <button class="botonAñadir" style="float: right ;" value="Pastas">Añadir</button>
       </h4>
     </div>
     <div id="collapse4" class="panel-collapse collapse">
@@ -323,6 +328,46 @@
                     </div>
                 </div>
             </div>
+            <div class="modal fade" id="agregarComida" tabindex="-1" role="dialog" aria-labelledby="agregarComidaLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                        <h4 class="modal-title" id="agregarComidaLabel">Añadir alimento</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                      <form method='post' action='agregarComida' id="idForm" enctype='multipart/form-data' >
+                                          	{{csrf_field()}}
+                                              <meta name="csrf-token" content="{{ csrf_token() }}" />
+                                              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                                              <div class="form-group error">
+                                              <label for="inputTask" class="col-sm-3 control-label">Alimento</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control has-error" id="nombre" name="nombre" placeholder="nombre" value="">
+                                                </div>
+                                              </div>
+                                            <div class="form-group">
+                                            <input type="file" name="image" text="actualizar Imagen" />
+                                              <div class="col-sm-12">
+                                                 <img class="foodImg" src="" alt="No hay imagen disponible"/>
+                                              </div>
+                                          </div>
+                                          <div class="modal-footer">
+
+                                              <button type="submit" class="btn btn-primary" id="btn-save">Save changes</button>
+                                              <input type="hidden" id="categoria_id" name="categoria_id" value="0">
+
+                                          </div>
+                                      </form>
+                                  </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
         </div>
 
   </body>

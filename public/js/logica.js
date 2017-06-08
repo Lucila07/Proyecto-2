@@ -42,7 +42,11 @@ $(document).ready(function(){
      $('#myModal').modal('show');
      })
  });
-
+ $('.botonAñadir').click(function(){
+   var categoria= $(this).val();
+   $('#categoria_id').val(categoria);
+  $('#agregarComida').modal('show');
+});
 
         ajax.doGet();
 //el panelId recibido va a  ser un valor obtenido a partir de la clave data-panelid que denota el nombre del archivo png

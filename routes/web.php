@@ -28,3 +28,4 @@ Route::get('/vegetales/json', 'ComidaController@json');
 Route::get('/edit/{id}', 'ComidaController@edit');
 
 Route::post('guardarCambios', 'ComidaController@buttonSave');
+Route::post('agregarComida', 'ComidaController@buttonAñadir');

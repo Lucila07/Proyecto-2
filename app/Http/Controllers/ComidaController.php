@@ -57,21 +57,17 @@ class ComidaController extends Controller
   $vegetales = Vegetal::find($id);
   $vegetales->Nombre=$nombre;
   $vegetales->save();
-
-  $vegetales= Vegetal::all();
-  $carnes= Carne::all();
-  $pastas= Pasta::all();
-  $minutas= Minuta::all();
-
-  
- Input::file('image')->move('Imagenes', $id.'.png');
-     return view('comidas.index')
-      ->with('vegetales', $vegetales)
-      ->with('carnes', $carnes)
-      ->with('pastas', $pastas)
-      ->with('minutas', $minutas);
+  Input::file('image')->move('Imagenes', $id.'.png');
+return redirect()->action('ComidaController@index');
 }
 
+public function buttonAñadir(Request $request){
+
+  $categoria = Input::get('categoria_id');
+  $nombre= Input::get('nombre');
+
+ return redirect()->action('ComidaController@index');
+}
 
 
 
