@@ -29,3 +29,5 @@ Route::get('/edit/{id}', 'ComidaController@edit');
 
 Route::post('guardarCambios', 'ComidaController@buttonSave');
 Route::post('agregarComida', 'ComidaController@buttonAñadir');
+
+Route::get('eliminarElemento/{categoria}/{id}','ComidaController@buttonEliminar' );

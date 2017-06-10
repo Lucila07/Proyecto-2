@@ -104,6 +104,9 @@
                    class="panel-button" id={{ $vegetal->Nombre }}  data-panelcat="Vegetales" data-panelid={{ $vegetal->Nombre }}> {{ $vegetal->Nombre }}
 
                   </li>
+
+                  <button class="botonEliminar" style="float: right ;" categoria="Vegetales" value="{{$vegetal->id}}" >Eliminar</button>
+
                   <button class="open-modal" style="float: right ;" value="{{$vegetal->id}}" >Edit</button>
 
 

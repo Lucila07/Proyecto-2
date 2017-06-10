@@ -47,6 +47,21 @@ $(document).ready(function(){
    $('#categoria_id').val(categoria);
   $('#agregarComida').modal('show');
 });
+$('.botonEliminar').click(function(){
+      var categoria=  $(this).attr('categoria');
+      var id= $(this).val();
+
+
+      console.log('categoria es'+categoria);
+      console.log('id es'+id);
+      $.get('eliminarElemento/'+categoria+'/'+id, function () {
+        console.log('Se elimino !!!');
+          
+
+      });
+
+});
+
 
         ajax.doGet();
 //el panelId recibido va a  ser un valor obtenido a partir de la clave data-panelid que denota el nombre del archivo png
