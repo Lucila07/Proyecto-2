@@ -56,8 +56,8 @@ $('.botonEliminar').click(function(){
       console.log('id es'+id);
       $.get('eliminarElemento/'+categoria+'/'+id, function () {
         console.log('Se elimino !!!');
-          
 
+location.reload();
       });
 
 });
