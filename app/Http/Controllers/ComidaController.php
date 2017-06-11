@@ -91,9 +91,56 @@ if ($categoria=="Vegetales")
 
 public function buttonAñadir(Request $request){
 
-  $categoria = Input::get('categoria_id');
-  $nombre= Input::get('nombre');
+  $categoria = Input::get('categoria_agregar');
+  $nombre= Input::get('nombre_agregar');
 
+  if ($categoria=="Vegetales"){
+    $vegetales = new Vegetal;
+    $vegetales->Nombre = $nombre;
+
+             $vegetales->save();
+    }
+    else
+            if ($categoria=="Carnes")
+            $categoria_seleccionada = Carne::find($id);
+
+            else
+                if ($categoria=="Minutas")
+                  $categoria_seleccionada = Minuta::find($id);
+
+                else
+                    if ($categoria=="Pastas")
+                      $categoria_seleccionada = Pasta::find($id);
+
+                  Input::file('image_agregar')->move('Imagenes', 'hhh'.'.png');
+                  return redirect()->action('ComidaController@index');
+}
+
+public function buttonEliminar($categoria, $id){
+
+  if ($categoria=="Vegetales")
+    $categoria_seleccionada = Vegetal::find($id);
+
+  else
+          if ($categoria=="Carnes")
+          $categoria_seleccionada = Carne::find($id);
+
+          else
+              if ($categoria=="Minutas")
+                $categoria_seleccionada = Minuta::find($id);
+
+              else
+                  if ($categoria=="Pastas")
+                    $categoria_seleccionada = Pasta::find($id);
+
+
+$categoria_seleccionada->delete();
+$categoria_seleccionada->all();
+
+$filename='Imagenes/'$id.'-'.$categoria.'.png';
+$files=File::exists($filename);
+if ($files)
+      File::delete($filename);
 }
 
 }

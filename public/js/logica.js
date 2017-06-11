@@ -34,7 +34,7 @@ $(document).ready(function(){
 
      $.get('edit/'+id+'/'+categoria, function (data) {
          //success data
-        
+
      $('#comida_id').val(id);
      $('#nombre').val(data.Nombre);
      $('#categoria_id').val(categoria);
@@ -45,8 +45,22 @@ $(document).ready(function(){
  });
  $('.botonAñadir').click(function(){
    var categoria= $(this).val();
-   $('#categoria_id').val(categoria);
+   $('#categoria_agregar').val(categoria);
   $('#agregarComida').modal('show');
+});
+
+$('.botonEliminar').click(function(){
+      var categoria=  $(this).attr('categoria');
+      var id= $(this).val();
+
+
+      console.log('categoria es'+categoria);
+      console.log('id es'+id);
+      $.get('eliminarElemento/'+categoria+'/'+id, function () {
+        console.log('Se elimino !!!');
+
+location.reload();
+      });
 });
 
         ajax.doGet();

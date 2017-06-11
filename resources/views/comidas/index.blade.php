@@ -102,8 +102,9 @@
 
                   <li
                    class="panel-button" id={{ $vegetal->Nombre }}  data-panelcat="Vegetales" data-panelid={{ $vegetal->Nombre }}> {{ $vegetal->Nombre }}
-
                   </li>
+                  <button class="botonEliminar" style="float: right ;" categoria="Vegetales" value="{{$vegetal->id}}" >Eliminar</button>
+
                   <button class="open-modal" style="float: right ;" value="{{$vegetal->id}}" categoria="Vegetales" >Edit</button>
 
 
@@ -347,11 +348,11 @@
                                               <div class="form-group error">
                                               <label for="inputTask" class="col-sm-3 control-label">Alimento</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control has-error" id="nombre" name="nombre" placeholder="nombre" value="">
+                                                    <input type="text" class="form-control has-error" id="nombre_agregar" name="nombre_agregar" placeholder="nombre" value="">
                                                 </div>
                                               </div>
                                             <div class="form-group">
-                                            <input type="file" name="image" text="actualizar Imagen" />
+                                            <input type="file" name="image_agregar" text="actualizar Imagen" />
                                               <div class="col-sm-12">
                                                  <img class="foodImg" src="" alt="No hay imagen disponible"/>
                                               </div>
@@ -359,7 +360,7 @@
                                           <div class="modal-footer">
 
                                               <button type="submit" class="btn btn-primary" id="btn-save">Save changes</button>
-                                              <input type="hidden" id="categoria_id" name="categoria_id" value="0">
+                                              <input type="hidden" id="categoria_agregar" name="categoria_agregar" value="0">
 
                                           </div>
                                       </form>
