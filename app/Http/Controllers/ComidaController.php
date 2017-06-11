@@ -45,19 +45,19 @@ class ComidaController extends Controller
   }
 
   public function edit($id, $categoria) {
-if ($categoria=="Vegetal")
+if ($categoria=="Vegetales")
     $categoria_seleccionada = Vegetal::find($id);
 
   else
-          if ($categoria=="Carne")
+          if ($categoria=="Carnes")
           $categoria_seleccionada = Carne::find($id);
 
           else
-              if ($categoria=="Minuta")
+              if ($categoria=="Minutas")
                 $categoria_seleccionada = Minuta::find($id);
 
               else
-                  if ($categoria=="Pasta")
+                  if ($categoria=="Pastas")
                     $categoria_seleccionada = Pasta::find($id);
     return $categoria_seleccionada;
   //  return $categoria::find($id);
@@ -68,18 +68,18 @@ if ($categoria=="Vegetal")
   $nombre= Input::get('nombre');
   $categoria= Input::get('categoria_id');
 
-  if ($categoria=="Vegetal")
+  if ($categoria=="Vegetales")
       $categoria_seleccionada = Vegetal::find($id);
     else
-            if ($categoria=="Carne")
+            if ($categoria=="Carnes")
             $categoria_seleccionada = Carne::find($id);
 
             else
-                if ($categoria=="Minuta")
+                if ($categoria=="Minutas")
                   $categoria_seleccionada = Minuta::find($id);
 
                 else
-                    if ($categoria=="Pasta")
+                    if ($categoria=="Pastas")
                       $categoria_seleccionada = Pasta::find($id);
 
 

@@ -89,7 +89,7 @@
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
         Vegetales</a>
-        <button class="botonAñadir" style="float: right ;" value="Vegetal">Añadir</button>
+        <button class="botonAñadir" style="float: right ;" value="Vegetales">Añadir</button>
       </h4>
     </div>
 
@@ -104,7 +104,7 @@
                    class="panel-button" id={{ $vegetal->Nombre }}  data-panelcat="Vegetales" data-panelid={{ $vegetal->Nombre }}> {{ $vegetal->Nombre }}
 
                   </li>
-                  <button class="open-modal" style="float: right ;" value="{{$vegetal->id}}" categoria="Vegetal" >Edit</button>
+                  <button class="open-modal" style="float: right ;" value="{{$vegetal->id}}" categoria="Vegetales" >Edit</button>
 
 
               @endforeach
@@ -129,7 +129,7 @@
 
               @foreach ($carnes as $carne)
                   <li class="panel-button" data-panelcat="Carnes" data-panelid={{ $carne->Nombre }}> {{ $carne->Nombre }}</li>
-                    <button class="open-modal" style="float: right ;" value="{{$carne->id}}" categoria="Carne" >Edit</button>
+                    <button class="open-modal" style="float: right ;" value="{{$carne->id}}" categoria="Carnes" >Edit</button>
               @endforeach
                   </ul>
         </div>
@@ -151,7 +151,7 @@
 
               @foreach ($minutas as $minuta)
                   <li class="panel-button" data-panelcat="Minutas" data-panelid={{ $minuta->Nombre }}> {{ $minuta->Nombre }} </li>
-                    <button class="open-modal" style="float: right ;" value="{{$minuta->id}}" categoria="Minuta" >Edit</button>
+                    <button class="open-modal" style="float: right ;" value="{{$minuta->id}}" categoria="Minutas" >Edit</button>
               @endforeach
                         </ul>
         </div>
@@ -173,7 +173,7 @@
 
               @foreach ($pastas as $pasta)
                   <li class="panel-button" data-panelcat="Pastas" data-panelid={{ $pasta->Nombre }}> {{ $pasta->Nombre }}</li>
-                    <button class="open-modal" style="float: right ;" value="{{$pasta->id}}" categoria="Pasta" >Edit</button>
+                    <button class="open-modal" style="float: right ;" value="{{$pasta->id}}" categoria="Pastas" >Edit</button>
               @endforeach
 
             </ul>
