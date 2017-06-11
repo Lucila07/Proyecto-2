@@ -44,21 +44,49 @@ class ComidaController extends Controller
     return $comidas;
   }
 
-  public function edit($id) {
+  public function edit($id, $categoria) {
+if ($categoria=="Vegetal")
+    $categoria_seleccionada = Vegetal::find($id);
 
- return Vegetal::find($id);
+  else
+          if ($categoria=="Carne")
+          $categoria_seleccionada = Carne::find($id);
+
+          else
+              if ($categoria=="Minuta")
+                $categoria_seleccionada = Minuta::find($id);
+
+              else
+                  if ($categoria=="Pasta")
+                    $categoria_seleccionada = Pasta::find($id);
+    return $categoria_seleccionada;
+  //  return $categoria::find($id);
   }
 
   public function buttonSave(Request $request){
-
   $id = Input::get('comida_id');
   $nombre= Input::get('nombre');
+  $categoria= Input::get('categoria_id');
 
-  $vegetales = Vegetal::find($id);
-  $vegetales->Nombre=$nombre;
-  $vegetales->save();
-  Input::file('image')->move('Imagenes', $id.'.png');
-return redirect()->action('ComidaController@index');
+  if ($categoria=="Vegetal")
+      $categoria_seleccionada = Vegetal::find($id);
+    else
+            if ($categoria=="Carne")
+            $categoria_seleccionada = Carne::find($id);
+
+            else
+                if ($categoria=="Minuta")
+                  $categoria_seleccionada = Minuta::find($id);
+
+                else
+                    if ($categoria=="Pasta")
+                      $categoria_seleccionada = Pasta::find($id);
+
+
+  $categoria_seleccionada->Nombre=$nombre;
+  $categoria_seleccionada->save();
+  Input::file('image')->move('Imagenes', $id.'-'.$categoria.'.png');
+  return redirect()->action('ComidaController@index');
 }
 
 public function buttonAñadir(Request $request){
@@ -66,9 +94,6 @@ public function buttonAñadir(Request $request){
   $categoria = Input::get('categoria_id');
   $nombre= Input::get('nombre');
 
- return redirect()->action('ComidaController@index');
 }
-
-
 
 }

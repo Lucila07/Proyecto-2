@@ -89,7 +89,7 @@
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
         Vegetales</a>
-        <button class="botonAñadir" style="float: right ;" value="Vegetales">Añadir</button>
+        <button class="botonAñadir" style="float: right ;" value="Vegetal">Añadir</button>
       </h4>
     </div>
 
@@ -104,7 +104,7 @@
                    class="panel-button" id={{ $vegetal->Nombre }}  data-panelcat="Vegetales" data-panelid={{ $vegetal->Nombre }}> {{ $vegetal->Nombre }}
 
                   </li>
-                  <button class="open-modal" style="float: right ;" value="{{$vegetal->id}}" >Edit</button>
+                  <button class="open-modal" style="float: right ;" value="{{$vegetal->id}}" categoria="Vegetal" >Edit</button>
 
 
               @endforeach
@@ -119,7 +119,7 @@
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
         Carnes</a>
-        <button class="botonAñadir" style="float: right ;" value="Carnes">Añadir</button>
+        <button class="botonAñadir" style="float: right ;" value="Carne">Añadir</button>
       </h4>
     </div>
     <div id="collapse2" class="panel-collapse collapse">
@@ -129,6 +129,7 @@
 
               @foreach ($carnes as $carne)
                   <li class="panel-button" data-panelcat="Carnes" data-panelid={{ $carne->Nombre }}> {{ $carne->Nombre }}</li>
+                    <button class="open-modal" style="float: right ;" value="{{$carne->id}}" categoria="Carne" >Edit</button>
               @endforeach
                   </ul>
         </div>
@@ -140,7 +141,7 @@
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
         Minutas</a>
-        <button class="botonAñadir" style="float: right ;" value="Minutas">Añadir</button>
+        <button class="botonAñadir" style="float: right ;" value="Minuta">Añadir</button>
       </h4>
     </div>
     <div id="collapse3" class="panel-collapse collapse">
@@ -150,6 +151,7 @@
 
               @foreach ($minutas as $minuta)
                   <li class="panel-button" data-panelcat="Minutas" data-panelid={{ $minuta->Nombre }}> {{ $minuta->Nombre }} </li>
+                    <button class="open-modal" style="float: right ;" value="{{$minuta->id}}" categoria="Minuta" >Edit</button>
               @endforeach
                         </ul>
         </div>
@@ -161,7 +163,7 @@
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
         Pastas</a>
-        <button class="botonAñadir" style="float: right ;" value="Pastas">Añadir</button>
+        <button class="botonAñadir" style="float: right ;" value="Pasta">Añadir</button>
       </h4>
     </div>
     <div id="collapse4" class="panel-collapse collapse">
@@ -171,6 +173,7 @@
 
               @foreach ($pastas as $pasta)
                   <li class="panel-button" data-panelcat="Pastas" data-panelid={{ $pasta->Nombre }}> {{ $pasta->Nombre }}</li>
+                    <button class="open-modal" style="float: right ;" value="{{$pasta->id}}" categoria="Pasta" >Edit</button>
               @endforeach
 
             </ul>
@@ -320,7 +323,7 @@
 
                                   <button type="submit" class="btn btn-primary" id="btn-save">Save changes</button>
                                   <input type="hidden" id="comida_id" name="comida_id" value="0">
-
+                                  <input type="hidden" id="categoria_id" name="categoria_id" value="0">
                               </div>
                           </form>
                       </div>
@@ -336,7 +339,7 @@
                                         <h4 class="modal-title" id="agregarComidaLabel">Añadir alimento</h4>
                                     </div>
                                     <div class="modal-body">
-                                      <form method='post' action='agregarComida' id="idForm" enctype='multipart/form-data' >
+                                      <form method='post' action='agregarComida' id="idForm2" enctype='multipart/form-data' >
                                           	{{csrf_field()}}
                                               <meta name="csrf-token" content="{{ csrf_token() }}" />
                                               <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -365,8 +368,6 @@
                                 </div>
                             </div>
                         </div>
-
-
 
         </div>
 

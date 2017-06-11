@@ -30,17 +30,18 @@ $(document).ready(function(){
         });
         $('.open-modal').click(function(){
      var id = $(this).val();
+     var categoria= $(this).attr('categoria');
 
-     $.get('edit/'+id, function (data) {
+     $.get('edit/'+id+'/'+categoria, function (data) {
          //success data
-
-     $('#comida_id').val(data.id);
+        
+     $('#comida_id').val(id);
      $('#nombre').val(data.Nombre);
-
-     $('.foodImg').attr('src',"Imagenes/"+id+".png");
+     $('#categoria_id').val(categoria);
+     $('.foodImg').attr('src',"Imagenes/"+id+"-"+categoria+".png");
 
      $('#myModal').modal('show');
-     })
+   });
  });
  $('.botonAñadir').click(function(){
    var categoria= $(this).val();
