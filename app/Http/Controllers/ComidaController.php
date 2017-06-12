@@ -8,6 +8,7 @@ use App\Carne;
 use App\Pasta;
 use App\Minuta;
 use Illuminate\Support\Facades\Input;
+use File; 
 
 
 class ComidaController extends Controller
@@ -95,10 +96,12 @@ public function buttonAñadir(Request $request){
   $nombre= Input::get('nombre_agregar');
 
   if ($categoria=="Vegetales"){
-    $vegetales = new Vegetal;
+    $vegetales =new Vegetal;
+
     $vegetales->Nombre = $nombre;
 
-             $vegetales->save();
+    $vegetales->save();
+    $id= $vegetales->id;
     }
     else
             if ($categoria=="Carnes")
@@ -112,7 +115,7 @@ public function buttonAñadir(Request $request){
                     if ($categoria=="Pastas")
                       $categoria_seleccionada = Pasta::find($id);
 
-                  Input::file('image_agregar')->move('Imagenes', 'hhh'.'.png');
+                  Input::file('image_agregar')->move('Imagenes',   $id .'-'.$categoria.'.png');
                   return redirect()->action('ComidaController@index');
 }
 
@@ -137,10 +140,12 @@ public function buttonEliminar($categoria, $id){
 $categoria_seleccionada->delete();
 $categoria_seleccionada->all();
 
-$filename='Imagenes/'$id.'-'.$categoria.'.png';
+$filename='Imagenes/'.$id.'-'.$categoria.'.png';
 $files=File::exists($filename);
 if ($files)
       File::delete($filename);
+
+
 }
 
 }
