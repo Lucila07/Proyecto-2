@@ -49,6 +49,11 @@ $(document).ready(function(){
   $('#agregarComida').modal('show');
 });
 
+$('.buttonSave').on('click',function(){
+  console.log("hice click");
+descargarimagen();
+});
+
 $('.botonEliminar').click(function(){
       var categoria=  $(this).attr('categoria');
       var id= $(this).val();
@@ -68,6 +73,20 @@ location.reload();
    // jQuery methods go here...
 
 });
+
+
+function descargarimagen() {
+        html2canvas($("#plato"), {
+            onrendered: function(canvas) {
+                theCanvas = canvas;
+                canvas.toBlob(function(blob) {
+					saveAs(blob, "miPlato.png");
+				});
+            }
+        });
+ }
+
+
 
 function exportToForm(sug) {
 

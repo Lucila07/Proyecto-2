@@ -14,6 +14,8 @@
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/logica.js"></script>
+  <script type="text/javascript" src="js/html2canvas.js"></script>
+  <script type="text/javascript" src="js/FileSaver.js"></script>
 
   </head>
   <body class="cuerpo">
@@ -75,11 +77,12 @@
 <div class="container-fluid principal">
 <div class="row">
 
-    <div class="col-md-8">
+    <div class="col-md-8" id="plato">
       <img id="PlatoPrincipal" src="Imagenes/plato.png" alt="Imagen plato" class="img-responsive center-block imgPpal">
       <img class="parte1-food" src="Imagenes/transparente.png" alt=""/>
       <img class="parte2-food" src="Imagenes/transparente.png" alt=""/>
       <img class="parte3-food" src="Imagenes/transparente.png" alt=""/>
+      <button class="buttonSave" id="buttonSave" >GUARDAR PLATO</button>
     </div>
 
   <div class="col-md-4">
